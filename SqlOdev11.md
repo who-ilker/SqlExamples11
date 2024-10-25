@@ -1,13 +1,12 @@
 Aşağıdaki sorgu senaryolarını dvdrental örnek veri tabanı üzerinden gerçekleştiriniz.
-UNION ALL -> 799
-Intersect -> 72
-UNION -> 647
+
 1)actor ve customer tablolarında bulunan first_name sütunları için tüm verileri sıralayalım.
 ```sql
 (SELECT first_name FROM actor)
 UNION
 (SELECT first_name FROM customer);
 ```
+
 2)actor ve customer tablolarında bulunan first_name sütunları için kesişen verileri sıralayalım.
 ```sql
 (SELECT first_name FROM actor)
@@ -23,19 +22,23 @@ EXCEPT
 ```
 
 4)İlk 3 sorguyu tekrar eden veriler için de yapalım.
-a)```sql
+
+a)
+```sql
 (SELECT first_name FROM actor)
 UNION
 (SELECT first_name FROM customer);
 ```
 
-b)```sql
+b)
+```sql
 (SELECT first_name FROM actor)
 INTERSECT ALL
 (SELECT first_name FROM customer);
 ```
 
-c)```sql
+c)
+```sql
 SELECT first_name FROM actor
 WHERE first_name NOT IN (
     SELECT first_name
